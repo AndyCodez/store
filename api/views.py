@@ -1,8 +1,12 @@
-from django.shortcuts import render, HttpResponse
-from .models import Customer
-# Create your views here.
+from django.shortcuts import render
+from .models import Customer, Order
+from rest_framework import viewsets
+from .serializers import CustomerSerializer, OrderSerializer
 
-def index(request):
-    customers = Customer.objects.all()
-    return HttpResponse(customers)
-    
+class CustomerViewSet(viewsets.ModelViewSet):
+    queryset = Customer.objects.all()
+    serializer_class = CustomerSerializer
+
+class OrderViewSet(viewsets.ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
