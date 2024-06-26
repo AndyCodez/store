@@ -1,0 +1,20 @@
+[run]
+# Source paths
+source = .
+         api/
+
+# Omit files and directories
+omit =
+    */venv/*
+    */site-packages/*
+    manage.py
+    */migrations/*
+    */tests/*
+    */settings.py
+    */urls.py
+    */wsgi.py
+    */__init__.py
+
+[report]
+# Show line numbers in the coverage report
+show_missing = true
