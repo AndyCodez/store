@@ -1,7 +1,8 @@
 from django.shortcuts import render, HttpResponse
-
+from .models import Customer
 # Create your views here.
 
 def index(request):
-    return HttpResponse("all")
+    customers = Customer.objects.all()
+    return HttpResponse(customers)
     
