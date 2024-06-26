@@ -90,22 +90,14 @@ WSGI_APPLICATION = 'tc4a.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('TC4A_DB_NAME'),
+        'USER': os.getenv('TC4A_DB_USER'),
+        'PASSWORD': os.getenv('TC4A_DB_PASSWORD'),
+        'HOST': os.getenv('TC4A_DB_HOST'),
+        'PORT': os.getenv('TC4A_DB_PORT'),
     }
 }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': BASE_DIR / 'tc4a_store_db',
-#         'USER': 'mydatabaseuser',
-#         'PASSWORD': 'mypassword',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

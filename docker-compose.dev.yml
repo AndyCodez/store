@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres:15
+    ports:
+      - "5434:5432"
+    restart: always
+    environment:
+      POSTGRES_DB: ${TC4A_DB_NAME}
+      POSTGRES_USER: ${TC4A_DB_USER}
+      POSTGRES_PASSWORD: ${TC4A_DB_PASSWORD}
