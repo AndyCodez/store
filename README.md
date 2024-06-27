@@ -1,6 +1,9 @@
 # Simple Store Service
 This is a simple python service store app written in Django. It uses Firebase for authentication. This will handle google signin with Oauth2 and OpenID.
 
+## Live API url
+The live API url can be found here: https://store-alpha-mocha.vercel.app/api
+
 ## Prerequisites
 
 1. Python3 installed on your machine.
