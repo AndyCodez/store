@@ -54,5 +54,5 @@ yarg==0.1.9
 djangorestframework
 python-dotenv
 firebase-admin
-psycopg2
+psycopg2-binary
 africastalking
