@@ -30,6 +30,22 @@ class CustomerViewSet(viewsets.ModelViewSet):
             logger.error(f"Error updating customer: {e}")
             return Response({"detail": "Error updating customer"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+    def partial_update(self, request, *args, **kwargs):
+        try:
+            response = super().partial_update(request, *args, **kwargs)
+            return response
+        except Exception as e:
+            logger.error(f"Error partially updating customer: {e}")
+            return Response({"detail": "Error partially updating customer"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def destroy(self, request, *args, **kwargs):
+        try:
+            response = super().destroy(request, *args, **kwargs)
+            return response
+        except Exception as e:
+            logger.error(f"Error deleting customer: {e}")
+            return Response({"detail": "Error deleting customer"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
@@ -55,6 +71,14 @@ class OrderViewSet(viewsets.ModelViewSet):
         except Exception as e:
             logger.error(f"Error updating order: {e}")
             return Response({"detail": "Error updating order"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def partial_update(self, request, *args, **kwargs):
+        try:
+            response = super().partial_update(request, *args, **kwargs)
+            return response
+        except Exception as e:
+            logger.error(f"Error partially updating order: {e}")
+            return Response({"detail": "Error partially updating order"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def destroy(self, request, *args, **kwargs):
         try:
